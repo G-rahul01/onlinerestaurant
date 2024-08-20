@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messager</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Universal styles */
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("./img/message/mailboy.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            color: #ededed;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact form {
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .input-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .input-box .input-field {
+            width: 48%;
+            flex-grow: 1;
+        }
+
+        .input-field .item, .textarea-field .item {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 2px solid #0ef;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            margin: 12px 0;
+        }
+
+        .field.error .item {
+            border-color: #D93025;
+        }
+
+        .field .item::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .field .error-txt {
+            font-size: 14.5px;
+            color: #D93025;
+            text-align: left;
+            margin: -5px 0 10px;
+            display: none;
+        }
+
+        .field.error .error-txt {
+            display: block;
+        }
+
+        .textarea-field .item {
+            resize: none;
+        }
+
+        form button {
+            padding: 12px 32px;
+            background: #0ef;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 0 10px #0ef;
+            font-size: 16px;
+            color: #333;
+            letter-spacing: 1px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        form button:hover {
+            box-shadow: none;
+        }
+
+        form button + button {
+            margin-left: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .copyright {
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            background-color: black;
+            margin-top: 30px;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .input-box {
+                flex-direction: column;
+            }
+
+            .input-box .input-field {
+                width: 100%;
+            }
+
+            .contact h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="contact">
+        <h2>Contact Me!</h2>
+        <form action="#">
+            <div class="input-box">
+                <div class="input-field field">
+                    <input type="text" placeholder="Full Name" id="name" class="item" autocomplete="off">
+                    <div class="error-txt">Full Name can't be blank</div>
+                </div>
+                <div class="input-field field">
+                    <input type="email" placeholder="Email" id="email" class="item" autocomplete="off">
+                    <div class="error-txt">Email can't be blank</div>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-field field">
+                    <input type="text" placeholder="Phone Number" id="phone" class="item" autocomplete="off">
+                    <div class="error-txt">Phone number can't be blank</div>
+                </div>
+                <div class="input-field field">
+                    <input type="text" placeholder="Subject" id="subject" class="item" autocomplete="off">
+                    <div class="error-txt">Subject can't be blank</div>
+                </div>
+            </div>
+            <div class="textarea-field field">
+                <textarea id="message" cols="30" rows="10" placeholder="Your Message" class="item" aria="off"></textarea>
+                <div class="error-txt">Message can't be blank</div>
+            </div>
+            <button type="submit">Send Message</button>
+            <button type="button" class="btn btn-outline-warning">
+                <a href="index.html">Back To Shopping</a>
+            </button>
+            <h5 class="copyright">Copyright © Rocky Restaurants Private Limited. All rights reserved.</h5>
+        </form>
+    </section>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
